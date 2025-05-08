@@ -3,6 +3,7 @@
 # DayZ Expansion Trader Editor
 
 A powerful tool for creating and editing trader locations, markets, categories, and items in DayZ Expansion.
+I made this tool for myself to make things a bit easier.
 
 ----------
 
