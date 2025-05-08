@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace ExpansionTrader_Editor
 {
-    public partial class MissionSelector : Form
+    public partial class MissionSelectorForm : Form
     {
         public List<string> Missions { get; set; }
 
-        public MissionSelector(List<string> missions)
+        public MissionSelectorForm(List<string> missions)
         {
             Missions = missions;
 
