@@ -22,7 +22,7 @@ namespace ExpansionTrader_Editor
             }
 
 
-            MissionSelector selector = new MissionSelector(tempMissions);
+            MissionSelectorForm selector = new MissionSelectorForm(tempMissions);
             selector.Show();
 
         }

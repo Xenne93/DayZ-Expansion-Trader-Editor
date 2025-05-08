@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModels\MarketCategory.cs" />
+    <Compile Include="DataModels\MarketObject.cs" />
+    <Compile Include="DataModels\Mission.cs" />
+    <Compile Include="DataModels\Trader.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,11 +57,11 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Missions.cs" />
-    <Compile Include="MissionSelector.cs">
+    <Compile Include="MissionSelectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MissionSelector.Designer.cs">
-      <DependentUpon>MissionSelector.cs</DependentUpon>
+    <Compile Include="MissionSelectorForm.Designer.cs">
+      <DependentUpon>MissionSelectorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,8 +69,8 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MissionSelector.resx">
-      <DependentUpon>MissionSelector.cs</DependentUpon>
+    <EmbeddedResource Include="MissionSelectorForm.resx">
+      <DependentUpon>MissionSelectorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

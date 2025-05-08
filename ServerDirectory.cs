@@ -28,6 +28,17 @@ namespace ExpansionTrader_Editor
 
         }
 
+        public static void IsServerDirectorySet()
+        {
+            if (string.IsNullOrEmpty(ServerRootDirectoryPath))
+            {
+                Main.Instance.Invoke((MethodInvoker)delegate
+                {
+                    Main.Instance.SetApplicationTabViewVisibility(false);
+                });
+            }
+        }
+
         public static void ValidateDirectories()
         {
 

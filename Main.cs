@@ -15,34 +15,50 @@ namespace ExpansionTrader_Editor
     {
 
 
-
+        public static Main Instance { get; private set; }
 
 
         public Main()
         {
+            Instance = this;
             InitializeComponent();
         }
 
         private void setServerRootDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            ServerDirectory.SetServerDirectory();
-            ServerDirectory.ValidateDirectories();
 
-            Missions.SelectMission();
-           
-
-
-           
-
-
+            StartServerPathSelection();
 
 
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
+            ServerDirectory.IsServerDirectorySet();
+         
+        }
 
+        public void SetApplicationTabViewVisibility(bool isVisible)
+        {
+            applicationTabView.Visible = isVisible;
+        }
+
+        private void StartServerPathSelection()
+        {
+            ServerDirectory.SetServerDirectory();
+            ServerDirectory.ValidateDirectories();
+            Missions.SelectMission();
+        }
+
+        public void ServerFolderLoadedCallback()
+        {
+
+        }
+
+        private void btnSelectServerPath_Click(object sender, EventArgs e)
+        {
+            StartServerPathSelection();
         }
     }
 }
