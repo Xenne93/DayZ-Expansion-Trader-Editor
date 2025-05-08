@@ -18,7 +18,6 @@ namespace ExpansionTrader_Editor
             foreach (string dir in Directory.GetDirectories(ServerDirectory.MpMissionsFolderPath))
             {
                 tempMissions.Add(dir);
-
             }
 
 

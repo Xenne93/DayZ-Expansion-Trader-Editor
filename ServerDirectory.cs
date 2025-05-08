@@ -16,16 +16,23 @@ namespace ExpansionTrader_Editor
         public static string MpMissionsFolderPath { get; private set; }
         public static string SelectedMissionFolderPath { get; private set; }
 
-        public static void SetServerDirectory()
+        public static void SetServerDirectoryViaDialog()
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             folderBrowserDialog.ShowDialog();
 
-            ServerRootDirectoryPath = folderBrowserDialog.SelectedPath;
+            SetServerDirectory(folderBrowserDialog.SelectedPath);
+
+        }
+
+
+        public static void SetServerDirectory(string serverPath)
+        {
+            ServerRootDirectoryPath = serverPath;
             ProfilesFolderPath = ServerRootDirectoryPath + "\\profiles\\";
             MpMissionsFolderPath = ServerRootDirectoryPath + "\\mpmissions\\";
             MessageBox.Show(ProfilesFolderPath);
-
+            ValidateDirectories();
         }
 
         public static void IsServerDirectorySet()
@@ -41,6 +48,9 @@ namespace ExpansionTrader_Editor
 
         public static void ValidateDirectories()
         {
+           
+
+
 
             if (!Directory.Exists(ServerRootDirectoryPath))
             {
@@ -59,6 +69,12 @@ namespace ExpansionTrader_Editor
                 MessageBox.Show("MpmMissions folder not found!");
                 return;
             }
+
+            
+            File.WriteAllText("PathSettings.conf", ServerRootDirectoryPath);
+     
+            Main.Instance.ServerFolderLoadedCallback();
+
 
 
         }
