@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ExpansionTrader_Editor
 {
     public partial class MissionSelectorForm : Form
     {
-        public List<string> Missions { get; set; }
+        public List<string> missionsList { get; set; }
 
         public MissionSelectorForm(List<string> missions)
         {
-            Missions = missions;
+            missionsList = missions;
 
             InitializeComponent();
 
@@ -24,7 +25,7 @@ namespace ExpansionTrader_Editor
 
         private void MissionSelector_Load(object sender, EventArgs e)
         {
-           foreach (string mission in Missions) {
+           foreach (string mission in missionsList) {
 
                 missionComboBox.Items.Add(mission);
 
@@ -32,7 +33,22 @@ namespace ExpansionTrader_Editor
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            if (Directory.Exists(ServerDirectory.MpMissionsFolderPath + "\\" + missionComboBox.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Mission exist!");
+            }
+            else
+            {
+                MessageBox.Show("Selected mission folder does not exist!");
+                return;
+            }
 
+            Missions.SetSelectedMission(missionComboBox.SelectedItem.ToString());
+            
 
+        }
     }
 }

@@ -31,7 +31,6 @@ namespace ExpansionTrader_Editor
             ServerRootDirectoryPath = serverPath;
             ProfilesFolderPath = ServerRootDirectoryPath + "\\profiles\\";
             MpMissionsFolderPath = ServerRootDirectoryPath + "\\mpmissions\\";
-            MessageBox.Show(ProfilesFolderPath);
             ValidateDirectories();
         }
 
