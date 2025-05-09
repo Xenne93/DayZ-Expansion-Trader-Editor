@@ -104,6 +104,12 @@ namespace ExpansionTrader_Editor
             typesBox.Items.Add(type);
         }
 
+        public void ResetTypesBox()
+        {
+            typesBox.Items.Clear();
+            
+        }
+
         private void SelectMarketCategory(object sender, MouseEventArgs e)
         {
             MarketCategory cat = MarketTab.instance.GetCategory(marketCategoryListBox.SelectedItem.ToString());
@@ -151,6 +157,17 @@ namespace ExpansionTrader_Editor
             Instance.loadServerNotificationGroupbox.Visible = true;
             Instance.applicationStatusLabel.Text = "Working Directory: ";
             Application.Restart();
+        }
+
+        private void OnFilterTextChanged(object sender, EventArgs e)
+        {
+
+           
+                typesBox.Items.Clear();
+                Missions.RepopulateTypes(filterTxtBox.Text);
+            
+           
+
         }
     }
 }

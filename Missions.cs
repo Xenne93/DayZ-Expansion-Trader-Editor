@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace ExpansionTrader_Editor
     public class Missions
     {
         public static string SelectedMission { get; private set; }
+        public static List<string> types { get; private set; }
 
         public static void SelectMission()
         {
@@ -49,6 +51,7 @@ namespace ExpansionTrader_Editor
 
         }
 
+        
         public static void LoadMissionData()
         {
             
@@ -91,7 +94,9 @@ namespace ExpansionTrader_Editor
                 }
             }
 
-            foreach(string type in typelist)
+            types = typelist;
+
+            foreach (string type in typelist)
             {
                 Main.Instance.Invoke((MethodInvoker)delegate
                 {
@@ -106,6 +111,27 @@ namespace ExpansionTrader_Editor
             MessageBox.Show("Loaded " + i.ToString() + " XML files with <type> elements.");
 
 
+        }
+
+        public static void RepopulateTypes(string filter = "")
+        {
+            foreach (string type in types)
+            {
+                
+                if (type.ToLower().Contains(filter.ToLower()))
+                {
+                  
+
+                    // Add to the listbox
+                    Main.Instance.Invoke((MethodInvoker)delegate
+                    {
+                        Main.Instance.AddTypesToTypesBox(type);
+                    });
+                }
+               
+               
+
+            }
         }
 
 
